@@ -6,6 +6,7 @@ class PersonalSite
     when "/" then index
     when "/about" then about
     when "/main.css" then css
+    when '/blog_1' then blog_1
     else
       error
     end
@@ -17,6 +18,10 @@ class PersonalSite
 
   def self.render_static(asset)
     [200, {'Content-Type' => 'text/html'}, [File.read("./public/#{asset}")]]
+  end
+
+  def self.blog_1
+    render_view('blog_1.html')
   end
 
   def self.index
